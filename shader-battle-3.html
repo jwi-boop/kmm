@@ -86,13 +86,13 @@ void main()
     // Correct periods, mind you
     float angle_period = PI/1.5;
     float radius_period = 1./2.;
-    // Using floating point modulo has its quirks
-    // so we use step() to go from 0 to 1 at the halfway point
-    float radius_value = step(mod(radius, radius_period), radius_period*0.5);
-    // And here the angle part is missing...
-    float angle_value = 0.;
+    // Modulo on floats gives a float
+    // so try using step() to force it into either 0 or 1
+    float radius_value = mod(radius, radius_period);
+    float angle_value = mod(angle, angle_period);
 
     // Create the checkerboard pattern!
+    // This expects the two values to be either 0 or 1
     float checkerboard = mod(radius_value + angle_value, 2.);
 
     // Multiply by desired color to colorize

@@ -2,7 +2,7 @@
 const outputList = document.getElementById("output-list");
 const myTextArea = document.getElementById("code");
 const myCodeMirror = CodeMirror.fromTextArea(myTextArea, {
-  mode: "x-shader/x-fragment",
+  mode: "text/javascript",
   // theme: "pastel-on-dark",
   lineNumbers: false,
   indentUnit: 4,

@@ -19,7 +19,7 @@ compileButton.onclick = (event) => {
 };
 
 // Filled in every render
-const answerField = document.querySelector("#shader");
+const answerField = document.querySelector("[name='answer']");
 
 
 const DEFAULT_VS = `
@@ -96,7 +96,9 @@ function render(state) {
   gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 2);
 
   state.uFrame.value++;
-  answerField.value = canvas.toDataURL();
+  if (answerField) {
+    answerField.value = canvas.toDataURL();
+  }
   myReq = window.requestAnimationFrame(() => render(state));
 }
 
