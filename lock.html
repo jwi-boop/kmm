@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TV-aksjonen 2025</title>
+
+    <link
+      id="favicon"
+      rel="icon"
+      href="./assets/swimming_whale.gif"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+      href="./nes.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./task.js" defer></script>
+    <script src="https://rawgithub.com/kitao/divsugar/master/build/divsugar.js" defer></script>
+    <script src="./coin.js" defer></script>
+    
+    <script src="/lock.js" defer></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    
+<header>
+  <ul>
+    <li><i class="nes-icon trophy is-large"></i></li>
+    <li>TV-aksjonen 2025</li>
+    <li><i class="nes-icon trophy is-large"></i></li>
+  </ul>
+  <nav><ul><li><a class="nes-btn is-success" href="./index.html">Start!</a></li> <li><a class="nes-btn"" href="./x-plus-y.html">X+Y</a></li> <li><a class="nes-btn"" href="./shader-battle-3.html">Rings</a></li> <li><a class="nes-btn"" href="./soko-1.html">Play</a></li> <li><a class="nes-btn"" href="./collectywalk.html">Collection</a></li> <li><a class="nes-btn"" href="./soko-2.html">Game</a></li> <li><a class="nes-btn"" href="./shader-battle-4.html">Kaleidoish</a></li> <li><a class="nes-btn"" href="./moneyCollected.html">Submissions</a></li></ul></nav>
+</header>
+    <main>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Turn the things</p>
+        <p>
+          Oh no, it's a locked door! Or something.
+        </p>
+        <p>
+          Pick the lock by rotating all the half-circles so they look like this one:
+        </p>
+        <svg id="correct-circ" width="200" height="200"></svg>
+        <p>
+          The different buttons rotate the different circles by different amounts.
+          Try to find a sequence of button-pushes that picks the lock!
+        </p>
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p class="title">Lock</p>
+        <div id="test-reset">
+        </div>
+        <svg id="svg" width="700" height="200"></svg>
+        <div id="buttons">
+        </div>
+        <p id="moves"></p>
+        <p id="result"></p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Couple of tips</p>
+        <p>
+          Figuring out what each button does is probably a good start.
+        </p>
+        <p>
+          It <em>might</em> be possible to solve this one by thinking about it and maybe applying some logic and maths or something.
+          If that's too dignified, it might be easier to just write some code :)
+        </p>
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p class="title">Submit Your Solution</p>
+        <p>
+          When you think you've found the right sequence of button-pushes, submit it below:
+        </p>
+        <p>Can't log in/submit stuff on this version.Less static version possibly at <a href="https://kodemedmening.computas.com" target="_blank">https://kodemedmening.computas.com</a>.</p>
+       </div>
+    </main>
+
+    
+<footer>
+  <i class="nes-icon heart is-small"></i> by <a href="https://computas.com/">Computas</a> - 
+  Thanks <a href="https://nostalgic-css.github.io/NES.css/">NES.css</a>!
+</footer>
+  </body>
+</html>

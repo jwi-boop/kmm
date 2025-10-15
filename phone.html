@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TV-aksjonen 2025</title>
+
+    <link
+      id="favicon"
+      rel="icon"
+      href="./assets/swimming_whale.gif"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+      href="./nes.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./task.js" defer></script>
+    <script
+      src="https://rawgithub.com/kitao/divsugar/master/build/divsugar.js"
+      defer
+    ></script>
+    <script src="./coin.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/theme/pastel-on-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.css"
+    />
+    <link rel="stylesheet" href="shader.css" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/mode/clike/clike.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/anyword-hint.min.js"
+      defer
+    ></script>
+    <script src="phone.js" defer></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    
+<header>
+  <ul>
+    <li><i class="nes-icon trophy is-large"></i></li>
+    <li>TV-aksjonen 2025</li>
+    <li><i class="nes-icon trophy is-large"></i></li>
+  </ul>
+  <nav><ul><li><a class="nes-btn is-success" href="./index.html">Start!</a></li> <li><a class="nes-btn"" href="./x-plus-y.html">X+Y</a></li> <li><a class="nes-btn"" href="./shader-battle-3.html">Rings</a></li> <li><a class="nes-btn"" href="./soko-1.html">Play</a></li> <li><a class="nes-btn"" href="./collectywalk.html">Collection</a></li> <li><a class="nes-btn"" href="./soko-2.html">Game</a></li> <li><a class="nes-btn"" href="./shader-battle-4.html">Kaleidoish</a></li> <li><a class="nes-btn"" href="./moneyCollected.html">Submissions</a></li></ul></nav>
+</header>
+    <main>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Missing phone numbers!</p>
+        <p>
+          We was going to call people for donations and such, but <a href="telefonliste.txt">our document's all garbled</a>!
+        </p>
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p>
+          It does look like the phone numbers are still in there though.
+          Let's see if we can find them.
+          A phone number is a number with 8 digits. It is formatted one of three ways:
+        </p>
+        <ol>
+          <li>12345678</li>
+          <li>12 34 56 78</li>
+          <li>123 45 678</li>
+        </ol>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Show Me The Code!</p>
+        <textarea id="code" name="code" class="nes-textarea" rows="12">
+// you have the entire text in one big string
+const the_text = text;
+
+
+const count = the_text.match(/bla/gi).length;
+
+// use print if you want to show display text below
+print(count);
+
+// or use console.log as usual
+console.log(count);
+</textarea
+        >
+        <p>
+          <button type="button" id="compile-code" class="nes-btn is-error">
+            Compile!
+          </button>
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Output</p>
+        <ol id="output-list"></ol>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Submit Your Solution</p>
+        <p>
+          Submit the number of phone numbers you found:
+        </p>
+        <p>Can't log in/submit stuff on this version.Less static version possibly at <a href="https://kodemedmening.computas.com" target="_blank">https://kodemedmening.computas.com</a>.</p>
+      </div>
+    </main>
+
+    
+<footer>
+  <i class="nes-icon heart is-small"></i> by <a href="https://computas.com/">Computas</a> - 
+  Thanks <a href="https://nostalgic-css.github.io/NES.css/">NES.css</a>!
+</footer>
+  </body>
+</html>

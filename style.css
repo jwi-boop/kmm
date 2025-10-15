@@ -1,0 +1,83 @@
+body {
+  font-family: "Press Start 2P";
+}
+
+header,
+main,
+footer {
+  max-width: 980px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+header,
+footer {
+  text-align: center;
+}
+
+footer {
+  margin-bottom: 30px;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 4px solid #D3D3D3;
+}
+
+header ul li {
+  display: inline;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+header nav ul {
+  margin-top: 10px;
+  border-bottom: none;
+}
+
+header nav ul li {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+div.nes-container {
+  margin-bottom: 2em;
+}
+
+input {
+  max-width: 338px;
+}
+
+input.wide {
+  max-width: 738px;
+}
+
+.left {
+  text-align: left;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(19, 214, 45, 0.08); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+td {
+  padding: 0.5em;
+}
+.CodeMirror {
+  font-family: "Press Start 2P";
+  font-size: 0.8em;
+  text-align: left;
+  height: auto;
+}

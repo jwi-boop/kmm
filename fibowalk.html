@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TV-aksjonen 2025</title>
+
+    <link
+      id="favicon"
+      rel="icon"
+      href="./assets/swimming_whale.gif"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+      href="./nes.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./task.js" defer></script>
+    <script
+      src="https://rawgithub.com/kitao/divsugar/master/build/divsugar.js"
+      defer
+    ></script>
+    <script src="./coin.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/theme/pastel-on-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.css"
+    />
+    <link rel="stylesheet" href="shader.css" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/mode/clike/clike.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/anyword-hint.min.js"
+      defer
+    ></script>
+    <script src="fibowalk.js" defer></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    
+<header>
+  <ul>
+    <li><i class="nes-icon trophy is-large"></i></li>
+    <li>TV-aksjonen 2025</li>
+    <li><i class="nes-icon trophy is-large"></i></li>
+  </ul>
+  <nav><ul><li><a class="nes-btn is-success" href="./index.html">Start!</a></li> <li><a class="nes-btn"" href="./x-plus-y.html">X+Y</a></li> <li><a class="nes-btn"" href="./shader-battle-3.html">Rings</a></li> <li><a class="nes-btn"" href="./soko-1.html">Play</a></li> <li><a class="nes-btn"" href="./collectywalk.html">Collection</a></li> <li><a class="nes-btn"" href="./soko-2.html">Game</a></li> <li><a class="nes-btn"" href="./shader-battle-4.html">Kaleidoish</a></li> <li><a class="nes-btn"" href="./moneyCollected.html">Submissions</a></li></ul></nav>
+</header>
+    <main>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Walking the dog</p>
+        <p>
+          Okay now Fibo needs walking.
+        </p>
+        <img src="./assets/running_dog.gif" alt="" height="300px;">
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p>
+          Fibo is a good boy but he's very particular about his walks. He always starts by standing still for a momment, and then walks one meter to the north.
+          He then turns 90 degrees to the right and walks one meter to the east, turns and walks <em>two</em> meters to the south, then three to the west.
+          And he carries on like that. Turning to the right and then walking the sum of the previous two distances. It's unclear how we get back home.
+        </p>
+        <p>
+          In the coordinate system we're using, after walking the first distance to the north, we're at the location (0, -1). After walking east from there we are at (-1, 1).
+          Two meters south from that and we're at (1, 1), and so on:
+        </p>
+        <ol>
+          <li>(0, -1)</li>
+          <li>(1, -1)</li>
+          <li>(1, 1)</li>
+          <li>(-2, 1)</li>
+          <li>(-2, -4)</li>
+          <li>(6, -4)</li>
+          <li>(6, 9)</li>
+          <li>(-15, 9)</li>
+          <li>(-15, -25)</li>
+          <li>(40, -25)</li>
+        </ol>
+        <p>
+          So after walking 10 distances, we're at (40, -25).
+        </p>
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p class="title">What should I do?</p>
+        <p>
+          Your task is to find out what location we are at after walking 63 distances.
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Show Me The Code!</p>
+        <textarea id="code" name="code" class="nes-textarea" rows="12">const vec = (x, y) =&gt; ({ x: x, y: y });
+const add = (a, b) =&gt; vec(a.x + b.x, a.y + b.y);
+
+const canvas = document.createElement("canvas");
+canvas.width = 600;
+canvas.height = 600;
+const ctx = canvas.getContext("2d");
+print(canvas);
+
+const origo = vec(300, 300);
+
+const moveTo = (v) =&gt; ctx.moveTo(origo.x + v.x, origo.y + v.y);
+const lineTo = (v) =&gt; ctx.lineTo(origo.x + v.x, origo.y + v.y);
+
+ctx.clearRect(0, 0, canvas.width, canvas.height); 
+
+ctx.strokeStyle = "black";
+ctx.beginPath();
+let pos = vec(0, 0);
+moveTo(pos);
+pos = add(pos, vec(0, -1));
+lineTo(pos);
+pos = add(pos, vec(1, 0));
+lineTo(pos);
+pos = add(pos, vec(0, 2));
+lineTo(pos);
+pos = add(pos, vec(-3, 0));
+lineTo(pos);
+pos = add(pos, vec(0, -5));
+lineTo(pos);
+pos = add(pos, vec(8, 0));
+lineTo(pos);
+pos = add(pos, vec(0, 13));
+lineTo(pos);
+pos = add(pos, vec(-21, 0));
+lineTo(pos);
+pos = add(pos, vec(0, -34));
+lineTo(pos);
+pos = add(pos, vec(55, 0));
+ctx.fillText(`10th (${pos.x}, ${pos.y})`, origo.x + pos.x, origo.y + pos.y);
+lineTo(pos);
+pos = add(pos, vec(0, 89));
+lineTo(pos);
+pos = add(pos, vec(-144, 0));
+lineTo(pos);
+pos = add(pos, vec(0, -233));
+lineTo(pos);
+pos = add(pos, vec(377, 0));
+lineTo(pos);
+ctx.fillText(`14th (${pos.x}, ${pos.y})`, origo.x + pos.x - 50, origo.y + pos.y - 5);
+pos = add(pos, vec(0, 610));
+lineTo(pos);
+ctx.stroke();</textarea>
+        <p>
+          <button type="button" id="compile-code" class="nes-btn is-error">
+            Compile!
+          </button>
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Output</p>
+        <ol id="output-list"></ol>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Submit Your Solution</p>
+        <p>
+          What location are you at after walking 63 distances?
+        </p>
+        <p>Can't log in/submit stuff on this version.Less static version possibly at <a href="https://kodemedmening.computas.com" target="_blank">https://kodemedmening.computas.com</a>.</p>
+      </div>
+    </main>
+
+    
+<footer>
+  <i class="nes-icon heart is-small"></i> by <a href="https://computas.com/">Computas</a> - 
+  Thanks <a href="https://nostalgic-css.github.io/NES.css/">NES.css</a>!
+</footer>
+  </body>
+</html>

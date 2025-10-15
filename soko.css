@@ -1,0 +1,18 @@
+canvas {
+  padding: 1rem;
+}
+
+.trekkliste {
+  overflow-x: auto;
+}
+
+.rute {
+  height: 16px;
+  width: 16px;
+  image-rendering: pixelated;
+}
+
+.rute24 {
+  height: 24px;
+  width: 24px;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TV-aksjonen 2025</title>
+
+    <link
+      id="favicon"
+      rel="icon"
+      href="./assets/swimming_whale.gif"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+      href="./nes.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./task.js" defer></script>
+    <script
+      src="https://rawgithub.com/kitao/divsugar/master/build/divsugar.js"
+      defer
+    ></script>
+    <script src="./coin.js" defer></script>
+
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="./soko.css" />
+    <script type="text/javascript" src="./soko-1.js" defer></script>
+    <script type="text/javascript" src="./sokoFront.js" defer></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    
+<header>
+  <ul>
+    <li><i class="nes-icon trophy is-large"></i></li>
+    <li>TV-aksjonen 2025</li>
+    <li><i class="nes-icon trophy is-large"></i></li>
+  </ul>
+  <nav><ul><li><a class="nes-btn is-success" href="./index.html">Start!</a></li> <li><a class="nes-btn"" href="./x-plus-y.html">X+Y</a></li> <li><a class="nes-btn"" href="./shader-battle-3.html">Rings</a></li> <li><a class="nes-btn is-primary"" href="./soko-1.html">Play</a></li> <li><a class="nes-btn"" href="./collectywalk.html">Collection</a></li> <li><a class="nes-btn"" href="./soko-2.html">Game</a></li> <li><a class="nes-btn"" href="./shader-battle-4.html">Kaleidoish</a></li> <li><a class="nes-btn"" href="./moneyCollected.html">Submissions</a></li></ul></nav>
+</header>
+    <main>
+      <div class="nes-container with-title is-centered">
+        <p class="title">I Want to Play a Game</p>
+        <p>
+          Let's collect some money. Try to put a coin in every slot, <a href="http://www.sokobano.de/wiki/index.php?title=How_to_play_Sokoban">Sokoban</a>-style.
+        </p>
+        <p>
+          Can you beat level 3?
+        </p>
+      </div>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Controls</p>
+        <p>
+          Movment: wasd
+          <br />
+          Undo: z
+          <br />
+          Redo: y
+          <br />
+          Reset level: r
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Soko!<span id="score"></span></p>
+        <img
+          id="menneske-sprites"
+          src="./assets/sprites.png"
+          alt=""
+        />
+        <img
+          id="katt-sprites"
+          src="./assets//katt-sprites.png"
+          alt=""
+        />
+        <div id="choose"></div>
+        <canvas id="canvas"></canvas>
+        <div id="solution"></div>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Submit Your Solution</p>
+        <p>
+          If you have beaten level 3, submit your solution for that level below.
+          The <a href="http://www.sokobano.de/wiki/index.php?title=Level_format#Solution">solution</a> is the string below the game that goes "lldRu..." or something. (Each letter corresponds to a move you've made in the game.)
+        </p>
+        <p>Can't log in/submit stuff on this version.Less static version possibly at <a href="https://kodemedmening.computas.com" target="_blank">https://kodemedmening.computas.com</a>.</p>
+      </div>
+      <button id="katt" class="nes-btn">
+        (katt!)
+      </button>
+    </main>
+
+    
+<footer>
+  <i class="nes-icon heart is-small"></i> by <a href="https://computas.com/">Computas</a> - 
+  Thanks <a href="https://nostalgic-css.github.io/NES.css/">NES.css</a>!
+</footer>
+  </body>
+</html>

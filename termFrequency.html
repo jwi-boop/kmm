@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TV-aksjonen 2025</title>
+
+    <link
+      id="favicon"
+      rel="icon"
+      href="./assets/swimming_whale.gif"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+      href="./nes.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./task.js" defer></script>
+    <script
+      src="https://rawgithub.com/kitao/divsugar/master/build/divsugar.js"
+      defer
+    ></script>
+    <script src="./coin.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/theme/pastel-on-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.css"
+    />
+    <link rel="stylesheet" href="shader.css" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/mode/clike/clike.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/anyword-hint.min.js"
+      defer
+    ></script>
+    <script src="termFrequency.js" defer></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    
+<header>
+  <ul>
+    <li><i class="nes-icon trophy is-large"></i></li>
+    <li>TV-aksjonen 2025</li>
+    <li><i class="nes-icon trophy is-large"></i></li>
+  </ul>
+  <nav><ul><li><a class="nes-btn is-success" href="./index.html">Start!</a></li> <li><a class="nes-btn"" href="./x-plus-y.html">X+Y</a></li> <li><a class="nes-btn"" href="./shader-battle-3.html">Rings</a></li> <li><a class="nes-btn"" href="./soko-1.html">Play</a></li> <li><a class="nes-btn"" href="./collectywalk.html">Collection</a></li> <li><a class="nes-btn"" href="./soko-2.html">Game</a></li> <li><a class="nes-btn"" href="./shader-battle-4.html">Kaleidoish</a></li> <li><a class="nes-btn"" href="./moneyCollected.html">Submissions</a></li></ul></nav>
+</header>
+    <main>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Term frequency</p>
+        <iframe src="https://giphy.com/embed/l3vQZT84QqVUKUWE8" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/alphabet-distortion-l3vQZT84QqVUKUWE8">via GIPHY</a></p>
+        <p>
+          Reading a text can be interesting, but you know what's even better?
+          Counting and grouping words in a text! Let me give you an example.
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">We have a text like this</p>
+        <p>
+          <em>
+            Computas er en nordisk leverandør av IT-løsninger og rådgivningstjenester innen teknologisk innovasjon. 
+            Vi utvikler verdiskapende og samfunnsnyttige løsninger til offentlig og privat sektor, og har særlig 
+            spisskompetanse innenfor offentlig forvaltning, justis, tilsyn, helse, logistikk, kraft og energi. Våre 
+            tverrfaglige team tilbyr den kompetansen som kreves gjennom hele digitaliseringprosessen. Vi jobber i 
+            tett samarbeid med våre kunder for å utvikle skreddersydde løsninger med høy brukernytte.
+
+            Computas ble etablert i Norge i 1985. Vårt hovedkontor ligger i Akersgata i Oslo sentrum. Vi har også 
+            kontor i København, samt en leveranseenhet i Bucuresti, Romania – Computas Development Center.
+          </em>
+        </p>
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p class="title">What's special about this text?</p>
+        <p>
+          In this text the word <span class="nes-text is-success">og</span> is present 5 times,
+          <span class="nes-text is-success">Computas</span> and <span class="nes-text is-success">løsninger</span> 3 times and
+          <span class="nes-text is-success">Akersgata</span> only one. If we say that <span class="nes-text is-success">og</span> is a "stop word" we
+          remove it. Then <span class="nes-text is-success">Computas</span> and <span class="nes-text is-success">løsninger</span> will be the words that is present the most times
+          in this text.
+        </p>
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p class="title">What should I do?</p>
+        <p>
+          Your task is to find the 7th most used word, after you have removed all
+          the stop words in the provided text below.
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Show Me The Code!</p>
+        <textarea id="code" name="code" class="nes-textarea" rows="12">
+// you have a commaseparated string of stop words
+const the_stop_words = stop_words;
+
+// you have the entire text in one big string
+const the_text = text;
+
+// use print if you want to show display text below
+print(stop_words);
+
+// or use console.log as usual
+console.log(stop_words);
+</textarea
+        >
+        <p>
+          <button type="button" id="compile-code" class="nes-btn is-error">
+            Compile!
+          </button>
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Output</p>
+        <ol id="output-list"></ol>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Submit Your Solution</p>
+        <p>
+          When you think you've found the right answer, submit it below, and
+          find out if it's correct!
+        </p>
+        <p>Can't log in/submit stuff on this version.Less static version possibly at <a href="https://kodemedmening.computas.com" target="_blank">https://kodemedmening.computas.com</a>.</p>
+      </div>
+    </main>
+
+    
+<footer>
+  <i class="nes-icon heart is-small"></i> by <a href="https://computas.com/">Computas</a> - 
+  Thanks <a href="https://nostalgic-css.github.io/NES.css/">NES.css</a>!
+</footer>
+  </body>
+</html>

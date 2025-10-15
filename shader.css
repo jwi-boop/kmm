@@ -1,0 +1,14 @@
+.CodeMirror {
+  font-family: "Press Start 2P";
+  font-size: 0.8em;
+  text-align: left;
+  height: 640px;
+}
+
+#shader {
+  width: 100%;
+}
+
+#compile-shader {
+  margin-top: 1em;
+}

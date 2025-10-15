@@ -1,0 +1,156 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TV-aksjonen 2025</title>
+
+    <link
+      id="favicon"
+      rel="icon"
+      href="./assets/swimming_whale.gif"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+      href="./nes.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./task.js" defer></script>
+    <script src="https://rawgithub.com/kitao/divsugar/master/build/divsugar.js" defer></script>
+    <script src="./coin.js" defer></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/theme/pastel-on-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.css">
+    <link rel="stylesheet" href="shader-battle.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/mode/clike/clike.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/anyword-hint.min.js" defer></script>
+    <script src="shader-battle.js" defer></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    
+<header>
+  <ul>
+    <li><i class="nes-icon trophy is-large"></i></li>
+    <li>TV-aksjonen 2025</li>
+    <li><i class="nes-icon trophy is-large"></i></li>
+  </ul>
+  <nav><ul><li><a class="nes-btn is-success" href="./index.html">Start!</a></li> <li><a class="nes-btn"" href="./x-plus-y.html">X+Y</a></li> <li><a class="nes-btn"" href="./shader-battle-3.html">Rings</a></li> <li><a class="nes-btn"" href="./soko-1.html">Play</a></li> <li><a class="nes-btn"" href="./collectywalk.html">Collection</a></li> <li><a class="nes-btn"" href="./soko-2.html">Game</a></li> <li><a class="nes-btn is-primary"" href="./shader-battle-4.html">Kaleidoish</a></li> <li><a class="nes-btn"" href="./moneyCollected.html">Submissions</a></li></ul></nav>
+</header>
+    <main>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Shader Battle</p>
+        <p>
+          Make the image on the <span class="nes-text is-error">left</span> match the image on the <span class="nes-text is-success">right</span> by editing the fragment shader code below.
+        </p>
+        <p>
+          Here, we're making a <a href="https://en.wikipedia.org/wiki/Kaleidoscope" target="_blank">kaleidoscope</a>-esque effect.
+          The images below are sliced up like pies and given a repeated pattern.
+          You'll have to flip every second slice so that they all mirror each other like in the image on the <span class="nes-text is-success">right</span>.
+        </p>
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p class="title">Make These Images Match</p>
+        <canvas id="shader" width="400" height="300"></canvas>
+        <img id="solution" src="./assets/shader-battle-4.png" />
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">By Editing This Code</p>
+        <p id="shader-compilation-errors" class="nes-text is-error" hidden></p>
+        <textarea id="code" name="code" class="nes-textarea" rows="22">
+// No need to touch this!
+// This is the base image that we warp later
+vec3 computeTexture(in vec2 uv) {
+    uv *= 1.5;
+    return vec3(1) * step(mod(uv.x, .1), .05);
+}
+
+void main()
+{
+    // These are the coordinates on the screen
+    // They go from -1 to 1 vertically (y),
+    // and further horizontally (x).
+    vec2 xy = getCenteredCoords();
+
+    // Polar coordinates as before
+    // radius = distance from center
+    float radius = length(xy);
+    // angle goes from 0 to 2*PI
+    float angle = atan(xy.x, xy.y);
+
+    // Transform angle
+    // HERE you'll need to change something :)
+    // We want each pie slice to mirror its two neighbours
+    // The code currently just slices up the image in 12 repeated slices
+    float period = PI/6.;
+    angle = mod(angle, period);
+
+    // After transforming polar coords,
+    // we travel back to cartesian space
+    // (comment out this line to see the base image)
+    xy = vec2(radius * sin(angle), radius * cos(angle));
+
+    // Then call the texture function
+    vec3 color = computeTexture(xy);
+
+    // gl_FragColor is the magic variable that gets drawn on screen
+    gl_FragColor = vec4(color, 1.0);
+}
+</textarea>
+        <p>
+          <button type="button" id="compile-shader" class="nes-btn is-error">
+            Compile!
+          </button>
+        </p>
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p class="title">What do I do With This Thing?</p>
+        <p>
+          The pixels in the image can be manipulated with the <a href="https://en.wikipedia.org/wiki/Shader#Pixel_shaders" target="_blank">fragment shader</a> code written above.
+        </p>
+        <p>
+          Fragment shaders run once for each pixel in an image. Each run is given the coordinate of a pixel in the image, and outputs the color we want that pixel to have.
+        </p>
+        <p>
+          Fragment shaders are written in <a href="https://en.wikipedia.org/wiki/OpenGL_Shading_Language" target="_blank">GLSL</a>. Think of it as a strange dialect of C.
+        </p>
+        <p>
+          Note that in GLSL, <span class="nes-text is-error">floats can't be used together with ints</span> as you may be used to.
+          I recommend using only floats, e.g. 2.0, and not ints, e.g. 2, when solving these tasks.
+        </p>
+        <p>
+          If you've got the time, <a href="https://thebookofshaders.com/02/" target="_blank">The Book of Shaders</a> has a nice introduction, and a lot more. 
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Submit Your Solution</p>
+        <p>
+          When you think you've found the right answer, submit it below, and
+          find out if it's correct!
+        </p>
+        <p>Can't log in/submit stuff on this version.Less static version possibly at <a href="https://kodemedmening.computas.com" target="_blank">https://kodemedmening.computas.com</a>.</p>
+      </div>
+      
+    
+<footer>
+  <i class="nes-icon heart is-small"></i> by <a href="https://computas.com/">Computas</a> - 
+  Thanks <a href="https://nostalgic-css.github.io/NES.css/">NES.css</a>!
+</footer>
+  </body>
+</html>

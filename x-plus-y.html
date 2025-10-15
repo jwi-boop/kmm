@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TV-aksjonen 2025</title>
+
+    <link
+      id="favicon"
+      rel="icon"
+      href="./assets/swimming_whale.gif"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+      href="./nes.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./task.js" defer></script>
+    <script
+      src="https://rawgithub.com/kitao/divsugar/master/build/divsugar.js"
+      defer
+    ></script>
+    <script src="./coin.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/theme/pastel-on-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.css"
+    />
+    <link rel="stylesheet" href="shader.css" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/mode/clike/clike.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/anyword-hint.min.js"
+      defer
+    ></script>
+    <script src="x-plus-y.js" defer></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    
+<header>
+  <ul>
+    <li><i class="nes-icon trophy is-large"></i></li>
+    <li>TV-aksjonen 2025</li>
+    <li><i class="nes-icon trophy is-large"></i></li>
+  </ul>
+  <nav><ul><li><a class="nes-btn is-success" href="./index.html">Start!</a></li> <li><a class="nes-btn is-primary"" href="./x-plus-y.html">X+Y</a></li> <li><a class="nes-btn"" href="./shader-battle-3.html">Rings</a></li> <li><a class="nes-btn"" href="./soko-1.html">Play</a></li> <li><a class="nes-btn"" href="./collectywalk.html">Collection</a></li> <li><a class="nes-btn"" href="./soko-2.html">Game</a></li> <li><a class="nes-btn"" href="./shader-battle-4.html">Kaleidoish</a></li> <li><a class="nes-btn"" href="./moneyCollected.html">Submissions</a></li></ul></nav>
+</header>
+    <main>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Xes plus Ys</p>
+        <p>
+          Hello let's add some numbers.
+          <a href="x-plus-y.txt">Here's a file.</a>
+          Every character in the file is at some x,y-position: The first character is at 1,1.
+          The next one to the right is at 2,1 while the one below is at 1,2. And so on.
+          We're interested in the x and y characters in the file.
+          We want the sum of the y-values of all the y characters and the x-values of all the x characters.
+          Because reasons, or at least we could imagine there being reasons, potentially.
+        </p>
+      </div>
+      
+      <div class="nes-container with-title is-centered">
+        <p>
+          Here's a smaller example with the x and y characters highlighted:
+        </p>
+        <pre>eusv<mark>y</mark>tqrkg
+<mark>x</mark>vmb<mark>y</mark>fprld
+ezjvmff<mark>y</mark>gc
+l<mark>x</mark>h<mark>y</mark>asf<mark>x</mark>nz
+ewnah<mark>y</mark>e<mark>x</mark>jq
+inwlqdmmjv
+vifaooinbu
+aemhzikmep
+pinwbkwbqi
+fghketw<mark>y</mark>um</pre>
+        <p>
+          In this example the sum is 44:
+        </p>
+        <ul>
+          <li>1 (the y at 5,1)</li>
+          <li>+ 1 (the x at 1,2)</li>
+          <li>+ 2 (the y at 5,2)</li>
+          <li>+ 3 (the y at 8,3)</li>
+          <li>+ 2 (the x at 2,4)</li>
+          <li>+ 4 (the y at 4,4)</li>
+          <li>+ 8 (the x at 8,4)</li>
+          <li>+ 5 (the y at 6,5)</li>
+          <li>+ 8 (the x at 8,5)</li>
+          <li>+ 10 (the y at 8,10)</li>
+        </ul>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Show Me The Code!</p>
+        <textarea id="code" name="code" class="nes-textarea" rows="12">// we have the example:
+for (const line of example.split("\n")) {
+    print(line);
+}
+// also full text, but won't print all because large
+print(text.length);
+
+// tip: try to write code that finds the correct solution for the example
+// and then use the same code on the full thing
+// glhf
+</textarea>
+        <p>
+          <button type="button" id="compile-code" class="nes-btn is-error">
+            Compile!
+          </button>
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Output</p>
+        <ol id="output-list"></ol>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Submit Your Solution</p>
+        <p>
+          What number do you get for <a href="x-plus-y.txt">the provided file</a>?
+        </p>
+        <p>Can't log in/submit stuff on this version.Less static version possibly at <a href="https://kodemedmening.computas.com" target="_blank">https://kodemedmening.computas.com</a>.</p>
+      </div>
+    </main>
+
+    
+<footer>
+  <i class="nes-icon heart is-small"></i> by <a href="https://computas.com/">Computas</a> - 
+  Thanks <a href="https://nostalgic-css.github.io/NES.css/">NES.css</a>!
+</footer>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TV-aksjonen 2025</title>
+
+    <link
+      id="favicon"
+      rel="icon"
+      href="./assets/swimming_whale.gif"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+      href="./nes.css"
+      rel="stylesheet"
+    />
+
+    <script src="./task.js" defer></script>
+    <script
+      src="https://rawgithub.com/kitao/divsugar/master/build/divsugar.js"
+      defer
+    ></script>
+    <script src="./coin.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/theme/pastel-on-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/codemirror.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/mode/clike/clike.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/show-hint.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.2/addon/hint/anyword-hint.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="triangle.js" defer></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    
+<header>
+  <ul>
+    <li><i class="nes-icon trophy is-large"></i></li>
+    <li>TV-aksjonen 2025</li>
+    <li><i class="nes-icon trophy is-large"></i></li>
+  </ul>
+  <nav><ul><li><a class="nes-btn is-success" href="./index.html">Start!</a></li> <li><a class="nes-btn"" href="./x-plus-y.html">X+Y</a></li> <li><a class="nes-btn"" href="./shader-battle-3.html">Rings</a></li> <li><a class="nes-btn"" href="./soko-1.html">Play</a></li> <li><a class="nes-btn"" href="./collectywalk.html">Collection</a></li> <li><a class="nes-btn"" href="./soko-2.html">Game</a></li> <li><a class="nes-btn"" href="./shader-battle-4.html">Kaleidoish</a></li> <li><a class="nes-btn"" href="./moneyCollected.html">Submissions</a></li></ul></nav>
+</header>
+    <main>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Triangle numbers</p>
+        <p>
+          Triangles! Numbers! Triangles made of numbers!
+        </p>
+      </div>
+      <div id="example" class="nes-container with-title is-centered">
+        <p class="title">Example</p>
+      </div>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Numbering numbers</p>
+        <p>
+          In the triangle above, we're going to say that the first row is the one at top, with just a 1 in it.
+          And so we can say things like, "the second number in row 3 is 2," or "the 5th number in row 6 is 5."
+        </p>
+      </div>
+      <div class="nes-container with-title is-centered">
+        <p class="title">Different triangles</p>
+        <p>
+          The regular triangle starts with a row that just goes like: 1.
+          For all other rows it's like this: The row has one more number than the one above, and each number is the sum of the two numbers directliest above (and slightly to the left and right).
+          Numbers at the beginning and end of a row only has one "parent"-number above, so they'll be equal to just that number (so there's a bunch of ones at the edges of the rows).
+        </p>
+        <p>
+          What if we used the same rules for lines below, but started with a different row than the normal one? Maybe one that goes 1, 2, 3 instead.
+        </p>
+        <p>
+          The code below doesn't work at all. If you make it work you can use it to answer what the 40th number in line 50 would be in such a triangle.
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Show Me The Code!</p>
+        <textarea id="code" name="code" class="nes-textarea" rows="12">// it's possibly a good idea to make a function
+// that returns the row below a known row
+const nextRow = (arr) =&gt; {
+  const row = [];
+  const length = Math.random() * 10;
+  for (let i = 0; i &lt; length; i++) {
+    const n = arr[0] + arr[0];
+    row.push(n);
+  }
+  return row;
+};
+
+// and use it to build a result-triangle-array-of-arrays
+const triangle = (startRow, rowCount) =&gt; {
+  const res = [startRow];
+  for (let i = 1; i &lt; rowCount; i++) {
+    res.push(nextRow(res[0]));
+  }
+  return res;
+};
+
+// triTable is a helper function
+// for displaying an array-of-array-triangle
+// we probably do _not_ want to use it for really large triangles
+// but it can be nice to use it for testing like the first few rows
+print(triTable(triangle([1], 6)));
+print(triTable(triangle([1,2,3], 6)));
+</textarea>
+        <p>
+          <button type="button" id="compile-code" class="nes-btn is-error">
+            Compile!
+          </button>
+        </p>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Output</p>
+        <ol id="output-list"></ol>
+      </div>
+
+      <div class="nes-container with-title is-centered">
+        <p class="title">Submit Your Solution</p>
+        <p>
+          If row 1 is 1, 2, 3. What is the 40th number in row 50?
+        </p>
+        <p>Can't log in/submit stuff on this version.Less static version possibly at <a href="https://kodemedmening.computas.com" target="_blank">https://kodemedmening.computas.com</a>.</p>
+      </div>
+    </main>
+
+    
+<footer>
+  <i class="nes-icon heart is-small"></i> by <a href="https://computas.com/">Computas</a> - 
+  Thanks <a href="https://nostalgic-css.github.io/NES.css/">NES.css</a>!
+</footer>
+  </body>
+</html>
