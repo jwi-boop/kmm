@@ -50,7 +50,7 @@
   <nav><ul><li><a class="nes-btn is-success" href="./index.html">Start!</a></li> <li><a class="nes-btn"" href="./x-plus-y.html">X+Y</a></li> <li><a class="nes-btn is-primary"" href="./shader-battle-3.html">Rings</a></li> <li><a class="nes-btn"" href="./soko-1.html">Play</a></li> <li><a class="nes-btn"" href="./collectywalk.html">Collection</a></li> <li><a class="nes-btn"" href="./soko-2.html">Game</a></li> <li><a class="nes-btn"" href="./shader-battle-4.html">Kaleidoish</a></li> <li><a class="nes-btn"" href="./moneyCollected.html">Submissions</a></li></ul></nav>
 </header>
     <main>
-      <div class="nes-container with-title is-centered">
+<div class="nes-container with-title is-centered">
         <p class="title">Shader Battle</p>
         <p>
           Make the image on the <span class="nes-text is-error">left</span> match the image on the <span class="nes-text is-success">right</span> by editing the fragment shader code below.
@@ -83,13 +83,16 @@ void main()
     // angle goes from 0 to 2*PI
     float angle = atan(xy.x, xy.y);
 
-    // Correct periods, mind you
+    // Correct periods, don't fiddle with these :)
     float angle_period = PI/1.5;
     float radius_period = 1./2.;
+    // HERE'S WHAT YOU'LL NEED TO CHANGE!
     // Modulo on floats gives a float
-    // so try using step() to force it into either 0 or 1
+    // so try using step(value, threshold)
+    // to force it into either 0 or 1
     float radius_value = mod(radius, radius_period);
-    float angle_value = mod(angle, angle_period);
+    // and don't do it like this exactly >:)
+    float angle_value = step(mod(angle, angle_period), 0.2*angle_period);
 
     // Create the checkerboard pattern!
     // This expects the two values to be either 0 or 1
@@ -120,6 +123,9 @@ void main()
         </p>
         <p>
           Fragment shaders are written in <a href="https://en.wikipedia.org/wiki/OpenGL_Shading_Language" target="_blank">GLSL</a>. Think of it as a strange dialect of C.
+        </p>
+        <p>
+          GLSL has various built-in functions, see <a href="https://docs.gl/el3/step" target="_blank">the official documentation</a>.
         </p>
         <p>
           Note that in GLSL, <span class="nes-text is-error">floats can't be used together with ints</span> as you may be used to.
