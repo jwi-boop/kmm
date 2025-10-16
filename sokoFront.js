@@ -173,6 +173,7 @@ const byttBrett = idx => {
 };
 
 byttBrett(0);
+window.onload = () => render(spill);
 
 const spiller = ["@", "+"];
 const boks = ["$", "*"];
